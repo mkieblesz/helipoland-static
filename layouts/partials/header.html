@@ -1,0 +1,17 @@
+<div id="header">
+  <a id="logo" href="{{ .Site.Home.Permalink }}">
+    <img src="{{ .Site.BaseURL }}/logo_small.png" />
+  </a>
+  <div id="language-switcher-menu">
+    {{- partial "i18n.html" . -}}
+  </div>
+  <div id="menu">
+    {{ with .Site.GetPage "/contact" }}
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ end }}
+
+    {{ range .Site.Sections }}
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ end }}
+  </div>
+</div>

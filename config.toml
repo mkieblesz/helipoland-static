@@ -1,0 +1,10 @@
+DefaultContentLanguage = "pl"
+baseURL = "https://helipoland.com"
+
+[languages]
+  [languages.pl]
+    weight = 1
+    languageName = "Polski"
+  [languages.en]
+    weight = 2
+    languageName = "English"
