@@ -20,7 +20,7 @@ jobs:
       run: HUGO_ENV=production ./hugo
 
     - name: Sync files to S3 bucket
-      run: echo "TODO: syncing"
+      run: echo "TODO - syncing"
 
     - name: Refresh cloudfront
-      run: echo "TODO: refreshing cloudfront"
+      run: echo "TODO - refreshing cloudfront"
