@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install aws cli
-      run: sudo ./scripts/install_aws.sh
+      run: ./scripts/install_aws.sh
 
     - name: Install hugo
       run: ./scripts/install_hugo.sh
