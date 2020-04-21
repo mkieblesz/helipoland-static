@@ -1,5 +1,7 @@
-DefaultContentLanguage = "pl"
-baseURL = "https://helipoland.com"
+defaultContentLanguage = "pl"
+#baseURL = "https://helipoland.com"
+relativeURLs = "true"
+uglyURLs = "true"
 
 [languages]
   [languages.pl]
