@@ -29,7 +29,7 @@ Development happens accordingly to the following workflow.
     - `git add .` - this will add everything to staged changes
     - `git commit -m "Here is change description"` - this will commit changes to git locally
     - `git push` - this will push local commits to github
-    - github action will be triggered automatically after push - it will build hugo and deploy it to cdn
+    - github deploy action will be triggered automatically after push - it will build hugo and deploy it to cdn
 3. New version of the website should be available on [helipoland.com](https://helipoland.com).
 
 ![helipoland workflow](./helipoland.com.png)
