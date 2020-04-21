@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup requirements
+      run: ./scripts/setup.sh
+
+    - name: Generate static files
+      run: HUGO_ENV=production ./hugo
+
+    - name: Sync files to S3 bucket
+      run: echo "TODO: syncing"
+
+    - name: Refresh cloudfront
+      run: echo "TODO: refreshing cloudfront"
