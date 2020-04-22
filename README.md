@@ -81,7 +81,7 @@ node_modules/                           Npm packages generated when installing t
 
 ## Todos
 
-- (few hours) enable https via (CDN) provider and update github action to refresh cdn postdeploy - https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-invalidation.html or https://lustforge.com/2016/02/27/hosting-hugo-on-aws/
+- (1h) add CNAME from `new.helipoland.com` to `ddrb47t0cf972.cloudfront.net`
 - (2h) create pages
     ```
     homepage
