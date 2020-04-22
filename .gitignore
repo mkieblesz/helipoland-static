@@ -1,7 +1,9 @@
-### Hugo ###
+# Generated files by node (used for tailwind css library)
+/node_modules/
+
 # Generated files by hugo
 /public/
 /resources/_gen/
 
-# Executable may be added to repository
-hugo
+# Generated files by tailwind
+/static/styles.css

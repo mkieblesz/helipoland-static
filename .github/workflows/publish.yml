@@ -15,6 +15,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
 
     - name: Install aws cli
       run: sudo ./scripts/install_aws.sh
@@ -22,11 +25,11 @@ jobs:
     - name: Install hugo
       run: ./scripts/install_hugo.sh
 
-    - name: Generate static files
-      run: HUGO_ENV=production ./hugo
+    - name: Install tailwindcss
+      run: ./scripts/install_tailwind.sh
+
+    - name: Build website files
+      run: ./scripts/build.sh
 
     - name: Sync files to S3 bucket
-      run: aws s3 sync public/ s3://$AWS_S3_BUCKET --delete --acl public-read
-
-    - name: Refresh cloudfront
-      run: echo "TODO - refreshing cloudfront"
+      run: ./scripts/publish.sh
