@@ -7,7 +7,7 @@
   <body class="flex flex-col min-h-screen">
     <div id="header">
       <a id="logo" href="{{ `/` | relLangURL }}">
-        <img src="/logo_small.png" />
+        <img src="{{ .Site.BaseURL }}/logo_small.png" />
       </a>
       <div id="menu">
         {{- partial "i18n.html" . -}}

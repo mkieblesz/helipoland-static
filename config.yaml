@@ -1,6 +1,5 @@
-baseURL: "https://helipoland.com"
+baseURL: "https://ddrb47t0cf972.cloudfront.net"
 # relativeURLs: true
-# uglyURLs: true
 
 defaultContentLanguage: "pl"
 canonifyURLs: true

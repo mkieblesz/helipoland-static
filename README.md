@@ -38,18 +38,16 @@ Development happens accordingly to the following workflow.
         - keywords
         - type (website or article)
         - image (representing image of the webpage)
+    - to check final version of website run `./script/build.sh` and open website html files directly in the browser
 3. Commit changes locally.
     - `git add .` - this will add everything to staged changes
     - `git commit -m "Here is change description"` - this will commit changes to git locally
 4. Push changes to github.
     - `git push` - this will push local commits to github
 
-> Note: to access generated html files directly in chrome you have to generate them a bit differently
-> so site url references will be replaced to match your os filesystem. You have 2 options to do that.
-> 1. Generate html files with `hugo -b "file://$(pwd)/public"`, where -b option overrides baseURL
-> 2. Generate html files with `hugo`, comment baseURL setting and uncomment relativeURLs and uglyURLs settings
->
-> Now you can access files directly from filesystem.
+> Note: when browsing website html files directly in the browser links will still be pointing to live website. In order to make links point locally
+> comment baseURL setting and uncomment relativeURLs setting from config file. Then run `hugo` command. Read more [here](https://gohugo.io/content-management/urls/#relative-urls).
+> Alternativiely you can generate website with `hugo -b "file://$(pwd)/public"`.
 
 After every change to the templates gitlab `publish` action is triggered automatically. It will build website, push them to the hosting and refresh cdn cache. It should take no more than 5 minutes.
 
