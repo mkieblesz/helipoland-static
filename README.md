@@ -94,7 +94,7 @@ node_modules/                           Npm packages generated when installing t
 
 ## Todos
 
-- (2h) create pages
+- (2h) create pages with menus
     ```
     homepage
     offer (menu)
