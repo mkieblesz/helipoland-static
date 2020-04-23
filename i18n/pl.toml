@@ -1,0 +1,140 @@
+# Translations for Polish
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === Post ===
+[posts]
+other = "Posty"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "All %s"
+
+[tag]
+other = "Tag"
+
+[tags]
+other = "Tagi"
+
+[category]
+other = "Kategoria"
+
+[categories]
+other = "Kategorie"
+# === Taxonomy ===
+
+# === Pagination ===
+[more]
+other = "WIęcej"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "Wybierz język"
+
+[switchTheme]
+other = "Zmień skórke"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBySome]
+other = "Wykonane przez %s"
+
+[theme]
+other = "Skórka"
+# === partials/footer.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "Podziel się na"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "Zawartość"
+
+[publish]
+other = "opublikowane w dniu"
+
+[included]
+other = "zawarte w"
+
+[wordCount]
+other = "około {{ .Count }} słów"
+
+[readingTime]
+other = "{{ .Count }} minut"
+
+[views]
+other = "wyświetleń"
+
+[author]
+other = "Autor"
+
+[lastMod]
+other = "Ostatnio %s"
+
+[license]
+other = "Published under the %s license"
+
+[seeMarkdown]
+other = "Wyświetl w Markdown"
+
+[back]
+other = "Cofnij"
+
+[home]
+other = "Strona Główna"
+
+[readMore]
+other = "Przeczytaj Więcej"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "Strona nie odnaleziona"
+
+[pageNotFoundText]
+other = "Strona, której szukasz, nie istnieje. Przepraszamy."
+
+[backToHome]
+other = "Cofnij do Strony Głównej"
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "Notatka"
+
+[abstract]
+other = "Strzeszczenie"
+
+[info]
+other = "Info"
+
+[tip]
+other = "Wskazówka"
+
+[success]
+other = "Sukces"
+
+[question]
+other = "Pytanie"
+
+[warning]
+other = "Ostrzeżenie"
+
+[failure]
+other = "Niepowodzenie"
+
+[danger]
+other = "Niebezpieczeń"
+
+[bug]
+other = "Bug"
+
+[example]
+other = "Przykład"
+
+[quote]
+other = "Cytat"
+# === shortcodes/admonition.html ===
