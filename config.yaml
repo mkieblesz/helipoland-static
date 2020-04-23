@@ -1,0 +1,28 @@
+baseURL: "https://helipoland.com"
+# relativeURLs: true
+# uglyURLs: true
+
+defaultContentLanguage: "pl"
+canonifyURLs: true
+
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+
+paginate: 12
+
+params:
+  siteName: "Helipoland.com"
+  ogImage: "/images/cropped-Logo-ikona-storna-270x270.jpg"
+
+languages:
+  pl:
+    weight: 1
+    languageCode: "pl-PL"
+    languageName: "Polski"
+    copyright: "© 2020, Helipoland.com. Wszelkie prawa zastrzeżone."
+  en:
+    weight: 2
+    languageCode: "en-GB"
+    languageName: "English"
+    copyright: "© 2020, Helipoland.com. All rights reserved."
