@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang='{{ .Site.LanguageCode }}'>
-  {{- partial "head.html" . -}}
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{- partial "head.html" . -}}
+  </head>
+
   <body class="flex flex-col min-h-screen">
-    {{- partial "header.html" . -}}
+    <div id="header">
+      <a id="logo" href="{{ .Site.Home.Permalink }}">
+        <img src="{{ .Site.BaseURL }}/logo_small.png" />
+      </a>
+      <div id="menu">
+        {{ with .Site.GetPage "/contact" }}
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+        {{- partial "i18n.html" . -}}
+      </div>
+    </div>
+
     <main class="flex-1 sm:mx-4 md:mx-12 lg:mx-24 mt-4 sm:mt-16">
       {{- block "main" . }}{{- end }}
     </main>
-    {{- partial "footer.html" . -}}
+
+    <footer class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400">
+      <p>
+        made with
+        <a href="https://gohugo.io" class="underline hover:text-blue-400">Hugo</a>
+        and
+        <a href="https://tailwindcss.com" class="underline hover:text-blue-400">TailwindCSS</a>
+      </p>
+    </footer>
+
   </body>
 </html>

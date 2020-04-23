@@ -1,25 +1,79 @@
-<title>{{ block "title" . }}{{- .Title }}{{ end }}</title>
+<!-- based on https://www.skcript.com/svr/perfect-seo-meta-tags-with-hugo/ -->
 
-<!-- meta fields -->
+<!-- browser/os display settings -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-{{ if .Description }}
-  <meta name="description" content="{{ .Description }}" />
-{{ end }}
-{{ if .Keywords }}
-  <meta name="keywords" content="{{ delimit .Keywords ',' }}" />
-{{ end }}
-{{ if .Params.Author }}
-  <meta name="author" content="{{ .Params.Author }}" />
-{{ end }}
-{{ hugo.Generator }}
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.sitename }}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="imagemode" content="force" />
 
-<!-- favicon -->
 <link rel="icon" href="{{ .Site.BaseURL }}/cropped-Logo-ikona-storna-32x32.jpg" sizes="32x32">
 <link rel="icon" href="{{ .Site.BaseURL }}/cropped-Logo-ikona-storna-192x192.jpg" sizes="192x192">
 <link rel="apple-touch-icon-precomposed" href="{{ .Site.BaseURL }}/cropped-Logo-ikona-storna-180x180.jpg">
+
+<!-- for now these are not used -->
+<!-- <meta name="theme-color" content="#141414" />
 <meta name="msapplication-TileImage" content="{{ .Site.BaseURL }}/cropped-Logo-ikona-storna-270x270.jpg">
+<meta name="msapplication-TileColor" content="#141414" />
+<meta name="application-name" content="{{ .Title }}" /> -->
+
+<!-- search engine crawler tags -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- title tags -->
+<title itemprop="name">{{ .Title }}</title>
+<meta property="og:title" content="{{ .Title }}" />
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta itemprop="name" content="{{ .Title }}" />
+
+<!-- description tags -->
+<meta name="description" content="{{ .Params.description }}" />
+<meta itemprop="description" content="{{ .Params.description }}" />
+<meta property="og:description" content="{{ .Params.description }}" />
+<meta name="twitter:description" content="{{ .Params.description }}" />
+
+<!-- seo and semantic web specific tags -->
+<meta name="keywords" content="{{ delimit .Keywords ',' }}" />
+<meta property="og:site_name" content="{{ .Site.Params.SiteName }}" />
+
+<!-- link tags -->
+<base href="{{ .Permalink }}">
+<link rel="canonical" href="{{ .Permalink }}" itemprop="url" />
+<meta name="url" content="{{ .Permalink }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+<!-- language tags -->
+<meta property="og:locale" content="{{ .Language.Lang }}">
+<meta name="language" content="{{ .Language.LanguageName }}">
+{{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+{{ end }}
+
+<!-- image tags -->
+{{ with .Params.image }}
+  <meta itemprop="image" content="{{ . | absURL }}" />
+  <meta property="og:image" content="{{ . | absURL }}" />
+  <meta name="twitter:image" content="{{ . | absURL }}" />
+  <meta name="twitter:image:src" content="{{ . | absURL }}" />
+{{ else }}
+  <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
+  <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
+  <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
+  <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" />
+{{ end }}
+
+<!-- specific social media tags -->
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}">
+<meta name="twitter:creator" content="{{ .Site.Params.twitter }}" />
+
+<!-- Theme Color -->
+
+<meta name="coverage" content="Worldwide" />
+<meta name="distribution" content="Global" />
+<meta name="HandheldFriendly" content="True" />
 
 <!-- css sources -->
 {{ if .Site.IsServer }}
@@ -29,3 +83,6 @@
 {{ end }}
 
 <!-- js sources -->
+
+<!-- hugo tags -->
+{{ hugo.Generator }}
