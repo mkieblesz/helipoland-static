@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <head>
-    {{- partial "head.html" . -}}
+    {{ partial "head.html" . }}
   </head>
 
-  <body class="flex flex-col min-h-screen">
-    <div id="header">
-      <a id="logo" href="{{ `/` | relLangURL }}">
-        <img src="{{ .Site.BaseURL }}/logo_small.png" />
-      </a>
-      <div id="menu">
-        {{- partial "i18n.html" . -}}
-      </div>
-    </div>
+  <body class="flex flex-col min-h-screen"> {{/*  sticky footer  */}}
+    {{ partial "header.html" . }}
 
     <main class="flex-1 sm:mx-4 md:mx-12 lg:mx-24 mt-4 sm:mt-16">
-      {{- block "main" . }}{{- end }}
+      {{ block "main" . }}{{ end }}
     </main>
 
-    <footer class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400">
-      <p>
-        made with
-        <a href="https://gohugo.io" class="underline hover:text-blue-400">Hugo</a>
-        and
-        <a href="https://tailwindcss.com" class="underline hover:text-blue-400">TailwindCSS</a>
-      </p>
-    </footer>
-
+    {{ partial "footer.html" . }}
   </body>
 </html>

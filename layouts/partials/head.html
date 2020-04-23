@@ -27,7 +27,7 @@
 <meta property="og:image" content="{{ .Params.Image | default .Site.Params.Image | absURL }}" />
 <meta property="og:site_name" content="{{ .Site.Params.SiteName }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:locale" content="{{ .Language.Lang }}">
+<meta property="og:locale" content="{{ .Site.LanguageCode }}">
 
 <!-- twitter tags -->
 <meta name="twitter:title" content="{{ .Title }}" />
@@ -79,3 +79,5 @@
 {{ end }}
 
 <!-- js sources links -->
+<script type="module" src="{{ .Site.BaseURL }}/alpine.min.js"></script>
+<script nomodule src="{{ .Site.BaseURL }}/alpine-ie11.min.js" defer></script>
