@@ -30,13 +30,26 @@ Development happens accordingly to the following workflow.
         - add it to menus in `config.toml` file
     - ensure you are following tailwindcss [styleguide](https://gist.github.com/mkieblesz/d36ecac6f8ba03d8bccbe46ef80fd91f)
 2. Verify website works/loogs good locally.
-    - run local development server with `hugo server`
-    - go to [http://localhost:1313/](http://localhost:1313/) to check out local version of the website, which will automatically re-render on any file change
+    - run local development server with `hugo server` - any change to files will re-render website automatically
+    - go to [http://localhost:1313/](http://localhost:1313/)
+    - check if all seo tags are set in a page front matter:
+        - title
+        - description
+        - keywords
+        - type (website or article)
+        - image (representing image of the webpage)
 3. Commit changes locally.
     - `git add .` - this will add everything to staged changes
     - `git commit -m "Here is change description"` - this will commit changes to git locally
 4. Push changes to github.
     - `git push` - this will push local commits to github
+
+> Note: to access generated html files directly in chrome you have to generate them a bit differently
+> so site url references will be replaced to match your os filesystem. You have 2 options to do that.
+> 1. Generate html files with `hugo -b "file://$(pwd)/public"`, where -b option overrides baseURL
+> 2. Generate html files with `hugo`, comment baseURL setting and uncomment relativeURLs and uglyURLs settings
+>
+> Now you can access files directly from filesystem.
 
 After every change to the templates gitlab `publish` action is triggered automatically. It will build website, push them to the hosting and refresh cdn cache. It should take no more than 5 minutes.
 
@@ -205,3 +218,4 @@ node_modules/                           Npm packages generated when installing t
 - maybe:
     - consider https://www.algolia.com/ for search
     - consider 3d models on helicopter pages - https://sketchfab.com/3d-models/robinson-r44-1855fb3b31c048e3b7536b22cdf0a5f9 https://sketchfab.com/3d-models/robinson-r66-02822a4694074dd1aef00f5dd2ca0a23
+- which english are we using: GB or US?
