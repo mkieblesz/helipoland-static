@@ -11,5 +11,9 @@ tailwindcss build tailwind/styles.css -c tailwind/tailwind.config.js -o static/s
 # render website files
 hugo
 
+# postprocess html
+shopt -s globstar  # this makes public/**/*.html to search all html files witin public dir, not just it's subdirs
+js-beautify -s 2 --no-preserve-newlines --type html -r public/**/*.html
+
 # postprocess css
 postcss static/styles.css --config tailwind --map -o static/styles.final.css

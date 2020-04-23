@@ -9,3 +9,7 @@ npm install --no-package-lock \
     postcss-cli@7.1.0 \
     @fullhuman/postcss-purgecss@2.1.2 \
     cssnano@4.1.10
+
+# install html beautifier
+npm install --no-package-lock \
+    js-beautify@1.11.0
