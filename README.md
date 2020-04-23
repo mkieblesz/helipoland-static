@@ -94,7 +94,6 @@ node_modules/                           Npm packages generated when installing t
 
 ## Todos
 
-- (1h) add CNAME from `new.helipoland.com` to `ddrb47t0cf972.cloudfront.net`
 - (2h) create pages
     ```
     homepage
@@ -212,6 +211,7 @@ node_modules/                           Npm packages generated when installing t
     - image
 - (1 day) copy content to pages with tailwind components
 - (1 day) update seo tags in all pages
+- (1h) add CNAME from `new.helipoland.com` to `ddrb47t0cf972.cloudfront.net`
 - (?) redirect to language depending on browser https://stackoverflow.com/q/30562257/11060504
 - (few hours) analytics - ga or https://simpleanalytics.com/
 - (2 hours) update readome with how to use analytics and everything else

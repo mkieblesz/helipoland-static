@@ -14,7 +14,7 @@ title: "Helipoland.com"
 
 params:
   siteName: "Helipoland.com"
-  ogImage: "/images/cropped-Logo-ikona-storna-270x270.jpg"
+  image: "/images/cropped-Logo-ikona-storna-270x270.jpg"
   verification:
     google: "xcAnr3n7v7u1L5SPL6DLShwWQ7l_hIATFsk7If-rI_M"
     # bing: ""
