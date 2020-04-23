@@ -6,13 +6,10 @@
 
   <body class="flex flex-col min-h-screen">
     <div id="header">
-      <a id="logo" href="{{ .Site.Home.Permalink }}">
-        <img src="{{ .Site.BaseURL }}/logo_small.png" />
+      <a id="logo" href="{{ `/` | relLangURL }}">
+        <img src="/logo_small.png" />
       </a>
       <div id="menu">
-        {{ with .Site.GetPage "/contact" }}
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        {{ end }}
         {{- partial "i18n.html" . -}}
       </div>
     </div>

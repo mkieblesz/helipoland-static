@@ -3,7 +3,7 @@
 <!-- browser/os display settings -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.sitename }}" />
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.SiteName }}" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-touch-fullscreen" content="yes" />
@@ -23,19 +23,22 @@
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
 <!-- title tags -->
-<title itemprop="name">{{ .Title }}</title>
+<title itemprop="name">{{- block "title" . }}{{ .Title }}{{ end -}}</title>
 <meta property="og:title" content="{{ .Title }}" />
 <meta name="twitter:title" content="{{ .Title }}" />
 <meta itemprop="name" content="{{ .Title }}" />
 
 <!-- description tags -->
-<meta name="description" content="{{ .Params.description }}" />
-<meta itemprop="description" content="{{ .Params.description }}" />
-<meta property="og:description" content="{{ .Params.description }}" />
-<meta name="twitter:description" content="{{ .Params.description }}" />
+<meta name="description" content="{{ .Description }}" />
+<meta itemprop="description" content="{{ .Description }}" />
+<meta property="og:description" content="{{ .Description }}" />
+<meta name="twitter:description" content="{{ .Description }}" />
 
 <!-- seo and semantic web specific tags -->
-<meta name="keywords" content="{{ delimit .Keywords ',' }}" />
+
+{{ if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords ',' }}" />
+{{ end }}
 <meta property="og:site_name" content="{{ .Site.Params.SiteName }}" />
 
 <!-- link tags -->
@@ -69,11 +72,26 @@
 <meta name="twitter:site" content="{{ .Site.Params.twitter }}">
 <meta name="twitter:creator" content="{{ .Site.Params.twitter }}" />
 
-<!-- Theme Color -->
-
+<!-- other info -->
 <meta name="coverage" content="Worldwide" />
 <meta name="distribution" content="Global" />
 <meta name="HandheldFriendly" content="True" />
+
+{{- with .Site.Params.verification.google -}}
+  <meta name="google-site-verification" content="{{ . }}" />
+{{- end -}}
+{{- with .Site.Params.verification.bing -}}
+  <meta name="msvalidate.01" content="{{ . }}" />
+{{- end -}}
+{{- with .Site.Params.verification.yandex -}}
+  <meta name="yandex-verification" content="{{ . }}" />
+{{- end -}}
+{{- with .Site.Params.verification.pinterest -}}
+  <meta name="p:domain_verify" content="{{ . }}" />
+{{- end -}}
+{{- with .Site.Params.verification.baidu -}}
+  <meta name="baidu-site-verification" content="{{ . }}" />
+{{- end -}}
 
 <!-- css sources -->
 {{ if .Site.IsServer }}
