@@ -27,7 +27,7 @@ jobs:
       run: ./scripts/install_hugo.sh
 
     - name: Install tailwindcss
-      run: ./scripts/install_tailwind.sh
+      run: ./scripts/install_js.sh
 
     - name: Build website files
       run: ./scripts/build.sh

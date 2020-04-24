@@ -71,12 +71,9 @@
   <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
 {{ end }}
 
-<!-- css sources links -->
-{{ if .Site.IsServer }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles.css">
-{{ else }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles.final.css">
-{{ end }}
+<!-- generate css link https://gohugo.io/hugo-pipes/postcss/ -->
+{{ $style := resources.Get "css/styles.css" | resources.PostCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
 
 <!-- js sources links -->
 <script type="module" src="{{ .Site.BaseURL }}/alpine.min.js"></script>
