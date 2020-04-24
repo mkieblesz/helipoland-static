@@ -8,8 +8,9 @@ enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
 
-paginate: 12
 title: "Helipoland.com"
+paginate: 12
+sectionPagesMenu: "main"
 
 params:
   siteName: "Helipoland.com"
