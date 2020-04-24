@@ -3,6 +3,8 @@
 # ensure you have node 12.x installed
 # if you are on mac you can install it with homebrew like this `brew install node@12`
 
+set -e
+
 npm install --no-package-lock \
     tailwindcss@v1.3.4 \
     postcss@7.0.27 \

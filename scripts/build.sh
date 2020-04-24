@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # render website files
 hugo -e production
 

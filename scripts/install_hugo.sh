@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 HUGO_VERSION="0.69.0"
 OS="$(uname)"
 SYSTEM_ARCHITECTURE="$(getconf LONG_BIT)"

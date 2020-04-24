@@ -24,7 +24,7 @@ jobs:
       run: sudo ./scripts/install_aws.sh
 
     - name: Install hugo
-      run: ./scripts/install_hugo.sh
+      run: ./scripts/install_hugo.sh; sudo mv hugo /usr/local/bin/
 
     - name: Install tailwindcss
       run: ./scripts/install_js.sh
