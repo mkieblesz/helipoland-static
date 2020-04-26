@@ -32,6 +32,9 @@ other = "More"
 [selectLanguage]
 other = "Select Language"
 
+[overview]
+other = "Overview"
+
 [switchTheme]
 other = "Switch Theme"
 # === partials/header.html ===
