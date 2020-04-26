@@ -37,33 +37,33 @@
 
 <header class="border-b border-gray-200">
   <div class="w-full text-gray-700 bg-white">
-    <div x-data="{ isOpen: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto py-2 lg:items-center lg:justify-between lg:flex-row lg:px-6 lg:py-4 lg:px-8">
+    <div x-data="{ responsiveNavOpen: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto py-2 lg:items-center lg:justify-between lg:flex-row lg:px-6 lg:py-4 lg:px-8">
       <div class="flex flex-row items-center justify-between">
         <a id="logo" href="{{ `/` | relLangURL }}">
           <img src="{{ .Site.BaseURL }}/logo_small.png" alt="Helipoland.com" />
         </a>
-        <button class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="isOpen = !isOpen">
+        <button class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="responsiveNavOpen = !responsiveNavOpen">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-            <path x-show="!isOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-            <path x-show="isOpen" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            <path x-show="!responsiveNavOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            <path x-show="responsiveNavOpen" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
           </svg>
         </button>
       </div>
 
-      <nav :class="{'flex': isOpen, 'hidden': !isOpen}" class="hidden flex-col flex-grow py-4 lg:py-0 lg:flex lg:justify-start lg:flex-row">
+      <nav :class="{'flex': responsiveNavOpen, 'hidden': !responsiveNavOpen}" class="hidden flex-col flex-grow py-4 lg:ml-4 lg:py-0 lg:flex lg:justify-start lg:flex-row">
         {{ range .Site.Sections.ByWeight }}
           {{ $sectionPage := .Page }}
 
-          <div @click.away="isOpen = false" x-data="{ isOpen: false }" class="relative">
-            <button @click="isOpen = !isOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 font-semibold text-left bg-transparent rounded-lg lg:w-auto lg:inline lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <div @click.away="dropdownOpen = false" x-data="{ dropdownOpen: false }" class="relative">
+            <button @click="dropdownOpen = !dropdownOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 font-semibold text-left bg-transparent rounded-lg lg:w-auto lg:inline lg:mt-0 lg:mr-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
               <span>
                 {{ $sectionPage.Title }}
               </span>
-              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': isOpen, 'rotate-0': !isOpen}" class="inline w-4 h-4 mt-1 ml-1 transform lg:-mt-1">
+              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': dropdownOpen, 'rotate-0': !dropdownOpen}" class="inline w-4 h-4 mt-1 ml-1 transform lg:-mt-1">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-            <div x-show="isOpen" class="relative right-0 w-full mt-2 origin-top-right rounded-md shadow-lg lg:absolute lg:w-auto">
+            <div style="display: none" x-show="dropdownOpen" class="relative left-0 w-full mt-2 origin-top-right rounded-md shadow-lg lg:absolute lg:w-auto">
               <div class="px-2 py-2 bg-white rounded-md shadow">
                 {{ template "structure-menu" (dict "currentPage" $sectionPage "isRoot" true) }}
               </div>
@@ -72,17 +72,17 @@
         {{ end }}
 
         {{ if .IsTranslated }}
-          <div @click.away="isOpen = false" x-data="{ isOpen: false }" class="relative lg:ml-auto">
-            <button @click="isOpen = !isOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 font-semibold text-left bg-transparent rounded-lg lg:w-auto lg:inline lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <div @click.away="dropdownOpen = false" x-data="{ dropdownOpen: false }" class="relative lg:ml-auto">
+            <button @click="dropdownOpen = !dropdownOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 font-semibold text-left bg-transparent rounded-lg lg:w-auto lg:inline lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
               <span>
                 <span class="lg:hidden">{{ T `selectLanguage` }}</span>
                 <img style="margin-top: -1px" class="inline align-middle" src="{{ .Site.BaseURL }}/langs/{{ .Language.Lang }}.png" alt="">
               </span>
-              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': isOpen, 'rotate-0': !isOpen}" class="inline w-4 h-4 mt-1 ml-1 transform lg:-mt-1">
+              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': dropdownOpen, 'rotate-0': !dropdownOpen}" class="inline w-4 h-4 mt-1 ml-1 transform lg:-mt-1">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
               </svg>
             </button>
-            <div x-show="isOpen" class="relative right-0 w-full mt-2 origin-top-right rounded-md shadow-lg lg:absolute lg:w-48">
+            <div style="display: none" x-show="dropdownOpen" class="relative right-0 w-full mt-2 origin-top-right rounded-md shadow-lg lg:absolute lg:w-48">
               <div class="px-2 py-2 bg-white rounded-md shadow">
                 {{ range .Translations }}
                   <div>
